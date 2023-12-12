@@ -7,7 +7,7 @@ const highScoreText = document.getElementById('highScore');
 
 // Define game variables
 const gridSize = 20;
-let snake = [{ x: 10, y: 10 }];
+let snake = [{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }];
 let food = generateFood();
 let highScore = -1;
 let direction = 'right';
@@ -176,7 +176,7 @@ function checkCollision() {
 function resetGame() {
     updateHighScore();
     stopGame();
-    snake = [{ x: 10, y: 10 }];
+    snake = [{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }];
     food = generateFood();
     direction = 'right';
     gameSpeedDelay = 200;
@@ -184,7 +184,7 @@ function resetGame() {
 }
 
 function updateScore() {
-    const currentScore = snake.length - 1;
+    const currentScore = snake.length - 3;
     score.textContent = currentScore.toString().padStart(3, '0');
 }
 
@@ -196,7 +196,7 @@ function stopGame() {
 }
 
 function updateHighScore() {
-    const currentScore = snake.length - 1;
+    const currentScore = snake.length - 3;
     if (currentScore > highScore) {
         highScore = currentScore;
         highScoreText.textContent = highScore.toString().padStart(3, '0');
